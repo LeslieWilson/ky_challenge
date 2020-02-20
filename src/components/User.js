@@ -3,7 +3,7 @@ const User = props =>{
 
   return(
 
-    <li>{props.name}</li>
+    <li>{props.name} {props.email}</li>
   )
 }
 

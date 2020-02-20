@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Logo from './klogo.js';
 import './App.css';
 import List from './components/List'
+import UserForm from "./components/UserForm"
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
           <List />
+          <UserForm />
       </div>
     );
   }
