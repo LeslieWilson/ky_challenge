@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {postUsers} from "../requests/userRequests"
+
 
 const UserForm = (props)=>{
   const [userInfo, setUserInfo] = useState(
@@ -21,18 +21,14 @@ const UserForm = (props)=>{
       name:userInfo.name,
       email:userInfo.email
     }
-    console.log("payload",payload)
-    postUsers()
-    .then(body=>{
-      setUserInfo([
-        ...userInfo
-      ])
-    })
+    props.addNewUser(payload)
     setUserInfo({
         name:"",
         email:""
       })
+      console.log(userInfo)
     }
+
 
   return(
     <div className = "form">
