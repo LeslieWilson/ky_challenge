@@ -42,7 +42,6 @@ export const postUser = (payload) =>
   .then(response => response.json())
   .catch((error) =>{console.error("error in fetch!")})
 
-
   export const deleteUser = (id) =>
   fetch("http://localhost:3001/users/" + id,{
     method:"DELETE",

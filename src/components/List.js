@@ -26,11 +26,14 @@ let addNewUser=(payload)=>{
   })
 }
 
-let listOfUsers = list.map((user)=>{
+let listOfUsers = list.map((user,i)=>{
   function handleDeleteUser(){
+    const tempList = [...list]
     deleteUser(user.id)
     .then(body=>{
-      console.log(body)
+      console.log("bodyyy",body)
+      tempList.splice(i,1)
+      setList(tempList)
     })
   }
   return(
