@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import User from "./User"
-import {getAllUsers} from "../requests/userRequests"
-import {postUser} from "../requests/userRequests"
 import UserForm from "./UserForm"
-import {deleteUser} from "../requests/userRequests"
+import {deleteUser, editUserFetch, postUser,getAllUsers} from "../requests/userRequests"
+
 
 const List = props =>{
+  const [editInfo, setEditInfo] = useState(null)
   const [list, setList] = useState([])
  console.log("list2",list)
   useEffect(()=>{
@@ -26,6 +26,20 @@ let addNewUser=(payload)=>{
   })
 }
 
+let updateUser = (user) =>{
+  const tempList = [...list]
+  console.log("useredit1",user)
+  editUserFetch(user)
+  .then(body=>{
+    console.log("updateuserbody",body)
+  })
+}
+
+let editUser = (user)=>{
+  setEditInfo(user)
+}
+
+
 let listOfUsers = list.map((user,i)=>{
   function handleDeleteUser(){
     const tempList = [...list]
@@ -41,6 +55,9 @@ let listOfUsers = list.map((user,i)=>{
      name={user.name}
      email={user.email}
      handleDeleteUser ={handleDeleteUser}
+     handleEditUser = { () => {
+       editUser(user)
+     }}
      />
     )
   })
@@ -49,7 +66,9 @@ let listOfUsers = list.map((user,i)=>{
     <div>
     {listOfUsers}
     <UserForm
-    addNewUser = {addNewUser}/>
+    addNewUser = {addNewUser}
+    editInfo = {editInfo}
+    updateUser = {updateUser}/>
     </div>
   )
 }

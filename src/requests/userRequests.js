@@ -62,3 +62,26 @@ export const postUser = (payload) =>
     }
   })
   .catch((error)=>{console.error("error in fetch!!!")})
+
+export const editUserFetch = (payload) =>
+  fetch("http://localhost:3001/users/" + payload.id,{
+      method:"PATCH",
+      body: JSON.stringify(payload),
+      headers:{
+        Accept: "application/json",
+        "content-type": "application/json"
+      }
+    })
+    .then(response =>{
+      if(response.ok){
+        return response;
+      }else{
+        const errorMessage =
+        `${response.status}
+        (${response.statusText})`
+        const error = new Error(errorMessage)
+        throw(error)
+      }
+    })
+    .then(response => response.json())
+    .catch((error)=>{console.error("error in fetch!!!")})
