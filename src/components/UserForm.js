@@ -8,7 +8,6 @@ const UserForm = ({editInfo, addNewUser,updateUser})=>{
    )
 
 
-
 // the first time edit info will be null, but when I click on button, it wil be an object and useeffect wil be called again without referesning the page
 
 useEffect(()=>{
@@ -31,7 +30,7 @@ useEffect(()=>{
 
 // update user is not defined and not passed in as a prop so make these changes to list as i did addnewuser.
 
-assignment, make sure data is updated right away or reappears when i click submit. hint- I need to pass in a prop that tells the list.js that the list of the users has changed.list changed true or false. read that prop inside the use effect. right now useeffect is watching no props. it will watch that prop to see if its changed, if its changed it will reupdate automactially.
+// make sure data is updated right away or reappears when i click submit.  I need to pass in a prop that tells the list.js that the list of the users has changed.list changed true or false. read that prop inside the use effect. right now useeffect is watching no props. it will watch that prop to see if its changed, if its changed it will reupdate automactially.
 
   const handleUserSubmit = (event) =>{
     event.preventDefault()
@@ -51,7 +50,6 @@ assignment, make sure data is updated right away or reappears when i click submi
       })
       console.log(userInfo)
     }
-
 
   return(
     <div className = "form">

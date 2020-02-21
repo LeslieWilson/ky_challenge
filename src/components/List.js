@@ -5,7 +5,9 @@ import {deleteUser, editUserFetch, postUser,getAllUsers} from "../requests/userR
 
 
 const List = props =>{
+
   const [editInfo, setEditInfo] = useState(null)
+
   const [list, setList] = useState([])
  console.log("list2",list)
   useEffect(()=>{
@@ -28,7 +30,6 @@ let addNewUser=(payload)=>{
 
 let updateUser = (user) =>{
   const tempList = [...list]
-  console.log("useredit1",user)
   editUserFetch(user)
   .then(body=>{
     console.log("updateuserbody",body)
@@ -45,7 +46,6 @@ let listOfUsers = list.map((user,i)=>{
     const tempList = [...list]
     deleteUser(user.id)
     .then(body=>{
-      console.log("bodyyy",body)
       tempList.splice(i,1)
       setList(tempList)
     })
