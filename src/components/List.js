@@ -9,7 +9,6 @@ const List = props =>{
   const [editInfo, setEditInfo] = useState(null)
 
   const [list, setList] = useState([])
- console.log("list2",list)
   useEffect(()=>{
     getAllUsers()
       .then(body=>{
@@ -39,7 +38,6 @@ let updateUser = (user) =>{
 let editUser = (user)=>{
   setEditInfo(user)
 }
-
 
 let listOfUsers = list.map((user,i)=>{
   function handleDeleteUser(){
